@@ -27,4 +27,20 @@ book_010 = addBookToLibrary('The Catcher in the Rye', 'J.D. Salinger', '277', fa
 
 myLibrary.push(book_001, book_002, book_003, book_004, book_005, book_006, book_007, book_008, book_009, book_010);
 
-console.log(myLibrary);
+
+// Grab the book elements for the DOM 
+const books = document.querySelector('.books');
+
+myLibrary.forEach(bookData => {
+    const book = document.createElement('div');
+    book.className = 'book';
+    book.innerHTML = `
+        <p>Title:<h3> ${bookData.title}</h3></p>
+        <p>Author:<h3> ${bookData.author}</h3></p>
+        <p>Pages:<h3> ${bookData.pages}</h3></p>
+        <p>I read it?<h3> ${bookData.read}</h3></p>
+    `;
+
+    books.appendChild(book);
+})
+
