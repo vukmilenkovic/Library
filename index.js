@@ -28,7 +28,7 @@ book_010 = addBookToLibrary('The Catcher in the Rye', 'J.D. Salinger', '277', fa
 myLibrary.push(book_001, book_002, book_003, book_004, book_005, book_006, book_007, book_008, book_009, book_010);
 
 
-// Grab the book elements for the DOM 
+// Create the DOM elements for each book  
 const books = document.querySelector('.books');
 
 myLibrary.forEach(bookData => {
@@ -40,7 +40,18 @@ myLibrary.forEach(bookData => {
         <p>Pages:<h3> ${bookData.pages}</h3></p>
         <p>I read it?<h3> ${bookData.read}</h3></p>
     `;
+    book.style.border = '5px solid black';
+    book.style.borderRadius = '12px';
+    book.style.backgroundColor = 'white';
+    book.style.fontSize = '24px';
+    book.style.padding = '20px';
 
     books.appendChild(book);
 })
+
+
+// TODO: Create a JSON Database to store the differert books 
+// TODO: Create a button that will relocate the user to the page where he can 
+// write his own book, the button will comunicate with the database, adding the 
+// book to it
 

@@ -3,17 +3,29 @@
     padding: 0;
 }
 
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto_Condensed-ThinItalic.ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 50px;
+    background-color: rgb(225, 167, 218);
+    font-family: 'Roboto', sans-serif;
 }
 
 .container{
     height: auto;
     min-width: 920px;
-    outline: 0.5px solid lightblue;
+
 
 }
 .books {
@@ -25,7 +37,7 @@ body {
 }
 
 .book {
-    outline: 0.5px solid lightgreen;
+    
     min-height: 250px;
     display: flex;
     flex-direction: column;
