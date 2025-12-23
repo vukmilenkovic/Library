@@ -28,26 +28,28 @@ book_010 = addBookToLibrary('The Catcher in the Rye', 'J.D. Salinger', '277', fa
 myLibrary.push(book_001, book_002, book_003, book_004, book_005, book_006, book_007, book_008, book_009, book_010);
 
 
-// Create the DOM elements for each book  
-const books = document.querySelector('.books');
+// Display data from JavaScript 
 
-myLibrary.forEach(bookData => {
-    const book = document.createElement('div');
-    book.className = 'book';
-    book.innerHTML = `
-        <p>Title:<h3> ${bookData.title}</h3></p>
-        <p>Author:<h3> ${bookData.author}</h3></p>
-        <p>Pages:<h3> ${bookData.pages}</h3></p>
-        <p>I read it?<h3> ${bookData.read}</h3></p>
-    `;
-    book.style.border = '5px solid black';
-    book.style.borderRadius = '12px';
-    book.style.backgroundColor = 'white';
-    book.style.fontSize = '24px';
-    book.style.padding = '20px';
+// const books = document.querySelector('.books');
 
-    books.appendChild(book);
-})
+// myLibrary.forEach(bookData => {
+//     const book = document.createElement('div');
+//     book.className = 'book';
+//     book.innerHTML = `
+//         <p>Title:<h3> ${bookData.title}</h3></p>
+//         <p>Author:<h3> ${bookData.author}</h3></p>
+//         <p>Pages:<h3> ${bookData.pages}</h3></p>
+//         <p>I read it?<h3> ${bookData.read}</h3></p>
+//     `;
+//     book.style.border = '5px solid black';
+//     book.style.borderRadius = '12px';
+//     book.style.backgroundColor = 'white';
+//     book.style.fontSize = '24px';
+//     book.style.padding = '20px';
+
+//     books.appendChild(book);
+// })
+
 
 
 // TODO: Create a JSON Database to store the differert books 
@@ -55,3 +57,38 @@ myLibrary.forEach(bookData => {
 // write his own book, the button will comunicate with the database, adding the 
 // book to it
 
+// Display data from the database 
+fetch('./db.json')
+    .then(res => res.json())
+    .then(data => {
+        // Request calls the function
+        displayBooks(data.books);
+    })
+    .cath(error => {
+        console.error('Error loading JSON: ', error);
+    })
+
+
+function displayBooks(books){
+    const container = document.querySelector('.books');
+
+    books.forEach(book => {
+        const div = document.createElement('div');
+        div.className = 'book';
+        div.innerHTML = `
+            <p>Title:<h3> ${book.title}</h3></p>
+            <p>Author:<h3> ${book.author}</h3></p>
+            <p>Pages:<h3> ${book.pages}</h3></p>
+            <p>I read it?<h3> ${book.read}</h3></p>
+        `;
+        div.style.border = '5px solid black';
+        div.style.borderRadius = '12px';
+        div.style.backgroundColor = 'white';
+        div.style.fontSize = '24px';
+        div.style.padding = '20px';
+
+        container.appendChild(div);
+})
+    
+
+}
