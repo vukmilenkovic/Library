@@ -13,5 +13,18 @@ function addBookToLibrary(title, author, pages, read, id){
 }
 
 book_001 = addBookToLibrary('Shinning', 'Stephen King', '278', true, crypto.randomUUID());
+book_002 = addBookToLibrary('It', 'Stephen King', '1138', true, crypto.randomUUID());
+book_003 = addBookToLibrary('1984', 'George Orwell', '328', true, crypto.randomUUID());
+book_004 = addBookToLibrary('Animal Farm', 'George Orwell', '112', false, crypto.randomUUID());
+book_005 = addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '310', true, crypto.randomUUID());
+book_006 = addBookToLibrary('The Lord of the Rings', 'J.R.R. Tolkien', '1178', true, crypto.randomUUID());
+book_007 = addBookToLibrary('Fahrenheit 451', 'Ray Bradbury', '194', false, crypto.randomUUID());
+book_008 = addBookToLibrary('Brave New World', 'Aldous Huxley', '268', true, crypto.randomUUID());
+book_009 = addBookToLibrary('Dune', 'Frank Herbert', '412', true, crypto.randomUUID());
+book_010 = addBookToLibrary('The Catcher in the Rye', 'J.D. Salinger', '277', false, crypto.randomUUID());
 
-myLibrary.push(book_001);
+
+
+myLibrary.push(book_001, book_002, book_003, book_004, book_005, book_006, book_007, book_008, book_009, book_010);
+
+console.log(myLibrary);
