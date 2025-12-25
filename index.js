@@ -29,6 +29,7 @@ myLibrary.push(book_001, book_002, book_003, book_004, book_005, book_006, book_
 
 
 
+
 // Display data from JavaScript 
 
 // const books = document.querySelector('.books');
@@ -79,16 +80,21 @@ function displayBooks(books){
             <p>Author:<h3> ${book.author}</h3></p>
             <p>Pages:<h3> ${book.pages}</h3></p>
             <p>I read it?<h3> ${book.read}</h3></p>
-        `;
-        div.style.border = '5px solid black';
-        div.style.borderRadius = '12px';
-        div.style.backgroundColor = 'white';
-        div.style.fontSize = '24px';
-        div.style.padding = '20px';
+        `;  
 
         container.appendChild(div);
         
 })  
+ 
+
+const button = document.createElement('div');
+button.className = 'btn'
+button.innerHTML = `
+    <p class='btn-text'>Add your favorite books</p>
+`;
+
+        
+container.appendChild(button); 
     
 
 }
@@ -97,12 +103,14 @@ function displayForm(){
     const books = document.querySelector('.books');
     const container = document.querySelector('.container');
     
-    if (books) books.remove();
 
     const div = document.createElement('div');
     div.className = 'submit_form';
 
         div.innerHTML = `
+        <div className="input-title">
+            <p>Add your favorite book</p>
+        </div>
         <form class="form">
             <div class="fields">
                 <div class="column">
@@ -139,7 +147,7 @@ function displayForm(){
     `;
         container.appendChild(div);
 
-    const form = document.querySelector('.fileds');
-    
+    const form = document.querySelector('.fields');
+
 
 }
