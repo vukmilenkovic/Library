@@ -95,7 +95,18 @@ button.innerHTML = `
 
         
 container.appendChild(button); 
-    
+
+let isOpen = false;
+
+button.addEventListener('click', () => {
+    if (!isOpen) {
+        displayForm();
+        isOpen = true;
+    } else {
+        hideForm();
+        isOpen = false;
+    }
+});
 
 }
 
@@ -150,4 +161,9 @@ function displayForm(){
     const form = document.querySelector('.fields');
 
 
+}
+
+function hideForm() {
+    const form = document.querySelector('.submit_form');
+    if (form) form.remove();
 }
