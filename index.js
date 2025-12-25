@@ -96,61 +96,50 @@ function displayBooks(books){
 function displayForm(){
     const books = document.querySelector('.books');
     const container = document.querySelector('.container');
+    
+    if (books) books.remove();
 
-    // Create a new div on the right side of the page
     const div = document.createElement('div');
-
-    // Add html to the new element
     div.className = 'submit_form';
-    div.innerHTML = `
-        <div class="form">
-                <div class="fields">
-                        <div class="column">
-                            <div class="field">
-                                <label for="first_name">FIRST NAME</label>
-                                <input type="text" name="first_name" id="first_name">
-                            </div>
-                            <div class="field">
-                                <label for="email">EMAIL</label>
-                                <input type="email" name="email" id="email">
-                            </div>
-                            
-                            <div class="field">
-                                <label for="password">PASSWORD</label>
-                                <input type="password" name="password" id="password" class="password" minlength="4" maxlength="16">
-                            </div>
-                        </div>
-                    <div class="column">
-                        <div class="field">
-                            <label for="last_name">LAST NAME</label>
-                            <input type="text" name="first_name" id="last_name">
-                        </div>
-                        <div class="field">
-                            <label for="phone_number">PHONE NUMBER</label>
-                            <input type="number" name="phone_number" id="phone_number">
-                        </div>
-                        <div class="field">
-                            <label for="confirm_password">CONFIRM PASSWORD</label>
-                            <input type="password" name="confirm_password" id="confirm_password" minlength="4" maxlength="16" class="confirm_password">
-                        </div>
+
+        div.innerHTML = `
+        <form class="form">
+            <div class="fields">
+                <div class="column">
+                    <div class="field">
+                        <label>FIRST NAME</label>
+                        <input type="text" class="first_name">
+                    </div>
+                    <div class="field">
+                        <label>EMAIL</label>
+                        <input type="email" class="email">
+                    </div>
+                    <div class="field">
+                        <label>PASSWORD</label>
+                        <input type="password" class="password" minlength="4" maxlength="16">
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="field">
+                        <label>LAST NAME</label>
+                        <input type="text" class="last_name">
+                    </div>
+                    <div class="field">
+                        <label>PHONE NUMBER</label>
+                        <input type="number" class="phone_number">
+                    </div>
+                    <div class="field">
+                        <label>CONFIRM PASSWORD</label>
+                        <input type="password" class="confirm_password" minlength="4" maxlength="16">
                     </div>
                 </div>
             </div>
+        </form>
     `;
+        container.appendChild(div);
 
-    // Style the html above 
-    div.style.display = 'flex';
-    div.style.justifyContent = 'center';
-    div.style.alignItems = 'center';
-    div.style.gap = '30px';
-    div.style.position = 'absolute';
-    div.style.top = '50%';
-    div.style.bottom = '50%';
-    div.style.width = '780px';
-    div.style.height = '920px';
-    div.style.backgroundColor = 'white'
-
-    container.removeChild(books);
-    container.appendChild(div);
+    const form = document.querySelector('.fileds');
+    
 
 }
