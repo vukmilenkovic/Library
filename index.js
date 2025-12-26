@@ -79,7 +79,7 @@ function displayBooks(books){
             <p>Title:<h3> ${book.title}</h3></p>
             <p>Author:<h3> ${book.author}</h3></p>
             <p>Pages:<h3> ${book.pages}</h3></p>
-            <p>I read it?<h3> ${book.read}</h3></p>
+            <p>Rating<h3> ${book.rating}</h3></p>
         `;  
 
         container.appendChild(div);
@@ -124,36 +124,25 @@ function displayForm(){
         </div>
         <form class="form">
             <div class="fields">
-                <div class="column">
+                
                     <div class="field">
-                        <label>FIRST NAME</label>
-                        <input type="text" class="first_name">
+                        <label>Title</label>
+                        <input type="text" class="book-title">
                     </div>
                     <div class="field">
-                        <label>EMAIL</label>
-                        <input type="email" class="email">
+                        <label>Author</label>
+                        <input type="text" class="author">
                     </div>
                     <div class="field">
-                        <label>PASSWORD</label>
-                        <input type="password" class="password" minlength="4" maxlength="16">
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="field">
-                        <label>LAST NAME</label>
-                        <input type="text" class="last_name">
+                        <label>Pages</label>
+                        <input type="number" class="pages">
                     </div>
                     <div class="field">
-                        <label>PHONE NUMBER</label>
-                        <input type="number" class="phone_number">
+                        <label>Rating</label>
+                        <input type="float" class="rating">
                     </div>
-                    <div class="field">
-                        <label>CONFIRM PASSWORD</label>
-                        <input type="password" class="confirm_password" minlength="4" maxlength="16">
-                    </div>
-                </div>
             </div>
+            <button>Add to Library</button>
         </form>
     `;
         container.appendChild(div);

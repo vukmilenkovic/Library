@@ -5,70 +5,70 @@
       "title": "Shinning",
       "author": "Stephen King",
       "pages": 278,
-      "available": true
+      "rating": 9.3
     },
     {
       "id": 2,
       "title": "It",
       "author": "Stephen King",
       "pages": 1138,
-      "available": true
+      "rating": 8.7
     },
     {
       "id": 3,
       "title": "1984",
       "author": "George Orwell",
       "pages": 328,
-      "available": true
+      "rating": 9.1
     },
     {
       "id": 4,
       "title": "Animal Farm",
       "author": "George Orwell",
       "pages": 112,
-      "available": false
+      "rating": 8.9
     },
     {
       "id": 5,
       "title": "The Hobbit",
       "author": "J.R.R. Tolkien",
       "pages": 310,
-      "available": true
+      "rating": 9.4
     },
     {
       "id": 6,
       "title": "The Lord of the Rings",
       "author": "J.R.R. Tolkien",
       "pages": 1178,
-      "available": true
+      "rating": 9.8
     },
     {
       "id": 7,
       "title": "Fahrenheit 451",
       "author": "Ray Bradbury",
       "pages": 194,
-      "available": false
+      "rating": 8.4
     },
     {
       "id": 8,
       "title": "Brave New World",
       "author": "Aldous Huxley",
       "pages": 268,
-      "available": true
+      "rating": 8.6
     },
     {
       "id": 9,
       "title": "Dune",
       "author": "Frank Herbert",
       "pages": 412,
-      "available": true
+      "rating": 9.5
     },
     {
       "id": 10,
       "title": "The Catcher in the Rye",
       "author": "J.D. Salinger",
       "pages": 277,
-      "available": false
+      "rating": 7.9
     }
   ]
 }
