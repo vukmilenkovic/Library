@@ -120,7 +120,7 @@ function displayForm(){
 
         div.innerHTML = `
         <div className="input-title">
-            <p>Add your favorite book</p>
+            <p class="form-title">Add your favorite book</p>
         </div>
         <form class="form">
             <div class="fields">
@@ -139,15 +139,16 @@ function displayForm(){
                     </div>
                     <div class="field">
                         <label>Rating</label>
-                        <input type="float" class="rating">
+                        <input type="number" min="0" 
+                        max="1000" step="0.01"class="rating">
                     </div>
             </div>
-            <button>Add to Library</button>
+            <button type="submit">Add to Library</button>
         </form>
     `;
         container.appendChild(div);
 
-    const form = document.querySelector('.fields');
+
 
 
 }
@@ -156,3 +157,13 @@ function hideForm() {
     const form = document.querySelector('.submit_form');
     if (form) form.remove();
 }
+
+// Because we can't communicate with the json database without a server the button press won't do anything but clear the users input
+const form = document.querySelector('.form');
+form.addEventListener('submit', handlesubmit);
+
+function handleSubmit(e){
+    e.preventDefault();
+    e.target.reset();
+}
+

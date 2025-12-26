@@ -68,11 +68,13 @@ body {
     align-items: center;
     width: 400px;
     height: 920px;
-    background-color: white;
+    background-color: rgb(36, 35, 35);
     position: absolute;
     position: absolute;
     top: 0;
     right: 0;
+    color: white;
+    font-size: 32px;
     
     
 }
@@ -86,6 +88,10 @@ body {
     
 }
 
+.form-title {
+    font-size: 40px;
+}
+
 .fields {
     display: flex;
     flex-wrap: wrap;
@@ -93,9 +99,6 @@ body {
     
 }
 
-.column {
-    flex: 1 1 0;
-}
 
 .field {
     flex: 1 1 calc(50% - 1rem);
@@ -108,6 +111,7 @@ body {
 input {
     border: 1px solid #E5E7EB;
     outline: none;
+    height: 30px;
 }
 input:focus {
     border: 1px solid blue;
