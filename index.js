@@ -11,6 +11,10 @@ function Book(title, author, pages, rating, read, id) {
 
 };
 
+Book.prototype.toggleRead = function(){
+    this.read = !this.read;
+}
+
 function addBookToLibrary(title, author, pages, rating, read, id){
     return new Book(title, author, pages, rating, read, id);
 }
@@ -64,6 +68,8 @@ function displayBooks(){
     bookBtn.className = 'btn-small';
     bookBtn.textContent = 'Delete this book';
     bookBtn.dataset.id = `${bookData.id}`;
+
+    
 
     // Listen for a click on each book and filter the book with the right id from the array, the original array stayes the same!
     bookBtn.addEventListener('click', (e) => {
