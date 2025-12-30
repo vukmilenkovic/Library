@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, rating, id) {
     this.id = id;
@@ -38,7 +38,11 @@ const container = document.querySelector('.container');
 const books = document.querySelector('.books');
 
 // Put this in a function!
-myLibrary.forEach(bookData => {
+function displayBooks(){
+    // Clear the container of data every time the function is called 
+    books.innerHTML = '';
+    // Loop thru the myLibrary array and create a card element for each remaining book
+    myLibrary.forEach(bookData => {
     const div = document.createElement('div');
     div.className = 'book';
         div.innerHTML = `
@@ -53,63 +57,49 @@ myLibrary.forEach(bookData => {
     div.style.fontSize = '24px';
     div.style.padding = '20px';
 
+    // Create a delete botton for each book
     const bookBtn = document.createElement('div');
     bookBtn.className = 'btn-small';
     bookBtn.textContent = 'Delete this book';
     bookBtn.dataset.id = `${bookData.id}`;
+
+    // Listen for a click on each book and filter the book with the right id from the array, the original array stayes the same!
+    bookBtn.addEventListener('click', (e) => {
+            const id = e.currentTarget.dataset.id;
+            myLibrary = myLibrary.filter(book => book.id !== id);
+            displayBooks(); 
+    });
+    
     
     div.appendChild(bookBtn);
     books.appendChild(div);
     
-})
-
-
-
-const button = document.createElement('div');
-button.className = 'btn'
-button.innerHTML = `
-    <p class='btn-text'>Add your favorite books</p>
-`;
-
-books.appendChild(button); 
-
-let isOpen = false;
-
-button.addEventListener('click', () => {
-    if (!isOpen) {
-        displayForm();
-        isOpen = true;
-    } else {
-        hideForm();
-        isOpen = false;
-    }
-});
-
-// Connect the made book cards with JS 
-const deleteBtn = document.querySelectorAll('.btn-small');
-// Returns a node element, like an array, must loop thru the array!
-deleteBtn.forEach(el => {
-    // el represennts each node in the nodelist
-    el.addEventListener('click', (e) => {
-        console.log(e.currentTarget.dataset.id);
-        deleteBookById(`${e.currentTarget.dataset.id}`);
     })
-})
+    // Create a button on the main page to display the form section
+    const button = document.createElement('div');
+    button.className = 'btn';
+    button.innerHTML = `<p class='btn-text'>Add your favorite books</p>`;
+    books.appendChild(button); 
 
-console.log(myLibrary);
-function deleteBookById(id) {
-  let books = myLibrary.filter(book => book.id !== id);
-  console.log(books);
+    let isOpen = false;
+
+    // Shows / Hides the form.
+    button.addEventListener('click', () => {
+        if (!isOpen) {
+            displayForm();
+            isOpen = true;
+        } else {
+            hideForm();
+            isOpen = false;
+        }
+    });
 }
 
 
 function displayForm(){
     const container = document.querySelector('.container');
-    
-
     const div = document.createElement('div');
     div.className = 'submit_form';
-
         div.innerHTML = `
         <div className="input-title">
             <p class="form-title">Add your favorite book</p>
@@ -141,6 +131,7 @@ function displayForm(){
         container.appendChild(div);
 }
 
+
 function hideForm() {
     const form = document.querySelector('.submit_form');
     if (form) form.remove();
@@ -155,9 +146,8 @@ function handleSubmit(e){
     e.target.reset();
 }
 
-document.addEventListener('click', (e) => {
+displayBooks();
 
-});
 // TODO: Create a JSON Database to store the differert books 
 // TODO: Create a button that will relocate the user to the page where he can 
 // write his own book, the button will comunicate with the database, adding the 
