@@ -1,29 +1,30 @@
 let myLibrary = [];
 
-function Book(title, author, pages, rating, id) {
+function Book(title, author, pages, rating, read, id) {
     this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.rating = rating;
+    this.read = read;
     
 
 };
 
-function addBookToLibrary(title, author, pages, read, id){
-    return new Book(title, author, pages, read, id);
+function addBookToLibrary(title, author, pages, rating, read, id){
+    return new Book(title, author, pages, rating, read, id);
 }
 
-book_001 = addBookToLibrary('Shinning', 'Stephen King', '278', 8.7, crypto.randomUUID());
-book_002 = addBookToLibrary('It', 'Stephen King', '1138', 8.5, crypto.randomUUID());
-book_003 = addBookToLibrary('1984', 'George Orwell', '328', 8.8, crypto.randomUUID());
-book_004 = addBookToLibrary('Animal Farm', 'George Orwell', '112', 8.0, crypto.randomUUID());
-book_005 = addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '310', 9.3, crypto.randomUUID());
-book_006 = addBookToLibrary('The Lord of the Rings', 'J.R.R. Tolkien', '1178', 9.4, crypto.randomUUID());
-book_007 = addBookToLibrary('Fahrenheit 451', 'Ray Bradbury', '194', 7.3, crypto.randomUUID());
-book_008 = addBookToLibrary('Brave New World', 'Aldous Huxley', '268', 7.7, crypto.randomUUID());
-book_009 = addBookToLibrary('Dune', 'Frank Herbert', '412', 8.7, crypto.randomUUID());
-book_010 = addBookToLibrary('The Catcher in the Rye', 'J.D. Salinger', '277', 8.1, crypto.randomUUID());
+book_001 = addBookToLibrary('Shinning', 'Stephen King', '278', 8.7, true, crypto.randomUUID());
+book_002 = addBookToLibrary('It', 'Stephen King', '1138', 8.5, true, crypto.randomUUID());
+book_003 = addBookToLibrary('1984', 'George Orwell', '328', 8.8, true, crypto.randomUUID());
+book_004 = addBookToLibrary('Animal Farm', 'George Orwell', '112', 8.0, true, crypto.randomUUID());
+book_005 = addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '310', 9.3, true, crypto.randomUUID());
+book_006 = addBookToLibrary('The Lord of the Rings', 'J.R.R. Tolkien', '1178', 9.4, true, crypto.randomUUID());
+book_007 = addBookToLibrary('Fahrenheit 451', 'Ray Bradbury', '194', 7.3, true, crypto.randomUUID());
+book_008 = addBookToLibrary('Brave New World', 'Aldous Huxley', '268', 7.7, true, crypto.randomUUID());
+book_009 = addBookToLibrary('Dune', 'Frank Herbert', '412', 8.7,  true, crypto.randomUUID());
+book_010 = addBookToLibrary('The Catcher in the Rye', 'J.D. Salinger', '277', 8.1,  true, crypto.randomUUID());
 
 
 
@@ -49,7 +50,8 @@ function displayBooks(){
             <p>Title:<h3> ${bookData.title}</h3></p>
             <p>Author:<h3> ${bookData.author}</h3></p>
             <p>Pages:<h3> ${bookData.pages}</h3></p>
-            <p>Rating<h3> ${bookData.rating}</h3></p>
+            <p>Rating:<h3> ${bookData.rating}</h3></p>
+            <p>Read:<h3> ${bookData.read}</h3></p>
         `; 
     div.style.border = '5px solid black';
     div.style.borderRadius = '12px';
@@ -65,6 +67,7 @@ function displayBooks(){
 
     // Listen for a click on each book and filter the book with the right id from the array, the original array stayes the same!
     bookBtn.addEventListener('click', (e) => {
+            
             const id = e.currentTarget.dataset.id;
             myLibrary = myLibrary.filter(book => book.id !== id);
             displayBooks(); 

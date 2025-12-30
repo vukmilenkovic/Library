@@ -155,5 +155,17 @@ input:focus {
     align-items: center;
     font-size: 24px;
     font-weight: 700;
+    padding: 12px 24px;
+    font-size: 16px;
+   
+}
+
+.btn-small:hover {
+    cursor: pointer;
+}
+.btn-small:active {
+    transform: scale(1.1);
+    background-color: rgb(240, 107, 107);
+    color: white;
 }
 
