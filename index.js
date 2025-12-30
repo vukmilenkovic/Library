@@ -6,6 +6,7 @@ function Book(title, author, pages, rating, id) {
     this.author = author;
     this.pages = pages;
     this.rating = rating;
+    
 
 };
 
@@ -31,19 +32,20 @@ myLibrary.push(book_001, book_002, book_003, book_004, book_005, book_006, book_
 
 const container = document.querySelector('.container');
 
+
 // Display data from JavaScript 
 
 const books = document.querySelector('.books');
 
+// Put this in a function!
 myLibrary.forEach(bookData => {
     const div = document.createElement('div');
     div.className = 'book';
         div.innerHTML = `
-            <p data-id="${bookData.id}">Title:<h3> ${bookData.title}</h3></p>
+            <p>Title:<h3> ${bookData.title}</h3></p>
             <p>Author:<h3> ${bookData.author}</h3></p>
             <p>Pages:<h3> ${bookData.pages}</h3></p>
             <p>Rating<h3> ${bookData.rating}</h3></p>
-            <button>Remove from library</button>
         `; 
     div.style.border = '5px solid black';
     div.style.borderRadius = '12px';
@@ -51,52 +53,17 @@ myLibrary.forEach(bookData => {
     div.style.fontSize = '24px';
     div.style.padding = '20px';
 
+    const bookBtn = document.createElement('div');
+    bookBtn.className = 'btn-small';
+    bookBtn.textContent = 'Delete this book';
+    bookBtn.dataset.id = `${bookData.id}`;
+    
+    div.appendChild(bookBtn);
     books.appendChild(div);
+    
 })
 
-// Delete book
-function deleteBook(){
-    console.log(myLibrary);
 
-
-}
-
-
-
-// TODO: Create a JSON Database to store the differert books 
-// TODO: Create a button that will relocate the user to the page where he can 
-// write his own book, the button will comunicate with the database, adding the 
-// book to it
-
-// Display data from the database 
-// fetch('./db.json')
-//     .then(res => res.json())
-//     .then(data => {
-//         // Request calls the function
-//         displayBooks(data.books);
-//     })
-    
-
-
-// function displayBooks(books){
-//     const container = document.querySelector('.books');
-
-//     books.forEach(book => {
-//         const div = document.createElement('div');
-//         div.className = 'book';
-//         div.innerHTML = `
-//             <p>Title:<h3> ${book.title}</h3></p>
-//             <p>Author:<h3> ${book.author}</h3></p>
-//             <p>Pages:<h3> ${book.pages}</h3></p>
-//             <p>Rating<h3> ${book.rating}</h3></p>
-//             <button>Remove from library</button>
-//         `;  
-        
-
-//         container.appendChild(div);
-        
-// })  
- 
 
 const button = document.createElement('div');
 button.className = 'btn'
@@ -104,7 +71,6 @@ button.innerHTML = `
     <p class='btn-text'>Add your favorite books</p>
 `;
 
-        
 books.appendChild(button); 
 
 let isOpen = false;
@@ -119,10 +85,25 @@ button.addEventListener('click', () => {
     }
 });
 
+// Connect the made book cards with JS 
+const deleteBtn = document.querySelectorAll('.btn-small');
+// Returns a node element, like an array, must loop thru the array!
+deleteBtn.forEach(el => {
+    // el represennts each node in the nodelist
+    el.addEventListener('click', (e) => {
+        console.log(e.currentTarget.dataset.id);
+        deleteBookById(`${e.currentTarget.dataset.id}`);
+    })
+})
+
+console.log(myLibrary);
+function deleteBookById(id) {
+  let books = myLibrary.filter(book => book.id !== id);
+  console.log(books);
+}
 
 
 function displayForm(){
-    const books = document.querySelector('.books');
     const container = document.querySelector('.container');
     
 
@@ -167,10 +148,47 @@ function hideForm() {
 
 // Because we can't communicate with the json database without a server the button press won't do anything but clear the users input
 const form = document.querySelector('.form');
-form.addEventListener('submit', handlesubmit);
+//  form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e){
     e.preventDefault();
     e.target.reset();
 }
 
+document.addEventListener('click', (e) => {
+
+});
+// TODO: Create a JSON Database to store the differert books 
+// TODO: Create a button that will relocate the user to the page where he can 
+// write his own book, the button will comunicate with the database, adding the 
+// book to it
+
+// Display data from the database 
+// fetch('./db.json')
+//     .then(res => res.json())
+//     .then(data => {
+//         // Request calls the function
+//         displayBooks(data.books);
+//     })
+    
+
+
+// function displayBooks(books){
+//     const container = document.querySelector('.books');
+
+//     books.forEach(book => {
+//         const div = document.createElement('div');
+//         div.className = 'book';
+//         div.innerHTML = `
+//             <p>Title:<h3> ${book.title}</h3></p>
+//             <p>Author:<h3> ${book.author}</h3></p>
+//             <p>Pages:<h3> ${book.pages}</h3></p>
+//             <p>Rating<h3> ${book.rating}</h3></p>
+//             <button>Remove from library</button>
+//         `;  
+        
+
+//         container.appendChild(div);
+        
+// })  
+ 

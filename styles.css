@@ -146,4 +146,14 @@ input:focus {
     font-weight: 900;
 }
 
+.btn-small {
+    width: 70%;
+    height: 30px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+}
 
