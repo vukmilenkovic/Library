@@ -169,3 +169,26 @@ input:focus {
     color: white;
 }
 
+.btn-toggle {
+    width: 70%;
+    height: 30px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 12px 24px;
+    font-size: 16px;
+   
+}
+
+.btn-toggle:hover {
+    cursor: pointer;
+}
+.btn-toggle:active {
+    transform: scale(1.1);
+    background-color: rgb(240, 107, 107);
+    color: white;
+}
+

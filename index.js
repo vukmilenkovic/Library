@@ -69,11 +69,16 @@ function displayBooks(){
     bookBtn.textContent = 'Delete this book';
     bookBtn.dataset.id = `${bookData.id}`;
 
+    // Create a toggle read button for each book 
+    const toggleBtn = document.createElement('div');
+    toggleBtn.className = 'btn-toggle';
+    toggleBtn.textContent = 'Read?';
+
+
     
 
     // Listen for a click on each book and filter the book with the right id from the array, the original array stayes the same!
     bookBtn.addEventListener('click', (e) => {
-            
             const id = e.currentTarget.dataset.id;
             myLibrary = myLibrary.filter(book => book.id !== id);
             displayBooks(); 
@@ -81,6 +86,7 @@ function displayBooks(){
     
     
     div.appendChild(bookBtn);
+    div.appendChild(toggleBtn);
     books.appendChild(div);
     
     })
