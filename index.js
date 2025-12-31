@@ -84,6 +84,12 @@ function displayBooks(){
             displayBooks(); 
     });
     
+
+    // Listen for a click on the read button to activate the toggle prototype method
+    toggleBtn.addEventListener('click', () => {
+        bookData.toggleRead();
+        displayBooks();
+    })
     
     div.appendChild(bookBtn);
     div.appendChild(toggleBtn);
