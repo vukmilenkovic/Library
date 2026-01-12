@@ -1,34 +1,43 @@
 let myLibrary = [];
 
-function Book(title, author, pages, rating, read, id) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.rating = rating;
-    this.read = read;
+// function Book(title, author, pages, rating, read, id) {
+//     this.id = id;
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.rating = rating;
+//     this.read = read; 
+
+// };
+class Book {
+    constructor(title, author, pages, rating, read, id){
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.rating = rating;
+        this.read = read;
+    }
+    toggleRead(){
+        this.read = !this.read;
     
+    }
+    // addBookToLibrary(title, author, pages, rating, read, id){
+    // return new Book(title, author, pages, rating, read, id);
+    // }
 
-};
-
-Book.prototype.toggleRead = function(){
-    this.read = !this.read;
 }
 
-function addBookToLibrary(title, author, pages, rating, read, id){
-    return new Book(title, author, pages, rating, read, id);
-}
-
-book_001 = addBookToLibrary('Shinning', 'Stephen King', '278', 8.7, true, crypto.randomUUID());
-book_002 = addBookToLibrary('It', 'Stephen King', '1138', 8.5, true, crypto.randomUUID());
-book_003 = addBookToLibrary('1984', 'George Orwell', '328', 8.8, true, crypto.randomUUID());
-book_004 = addBookToLibrary('Animal Farm', 'George Orwell', '112', 8.0, true, crypto.randomUUID());
-book_005 = addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', '310', 9.3, true, crypto.randomUUID());
-book_006 = addBookToLibrary('The Lord of the Rings', 'J.R.R. Tolkien', '1178', 9.4, true, crypto.randomUUID());
-book_007 = addBookToLibrary('Fahrenheit 451', 'Ray Bradbury', '194', 7.3, true, crypto.randomUUID());
-book_008 = addBookToLibrary('Brave New World', 'Aldous Huxley', '268', 7.7, true, crypto.randomUUID());
-book_009 = addBookToLibrary('Dune', 'Frank Herbert', '412', 8.7,  true, crypto.randomUUID());
-book_010 = addBookToLibrary('The Catcher in the Rye', 'J.D. Salinger', '277', 8.1,  true, crypto.randomUUID());
+const book_001 = new Book('Shinning', 'Stephen King', '278', 8.7, true, crypto.randomUUID());
+const book_002 = new Book('It', 'Stephen King', '1138', 8.5, true, crypto.randomUUID());
+const book_003 = new Book('1984', 'George Orwell', '328', 8.8, true, crypto.randomUUID());
+const book_004 = new Book('Animal Farm', 'George Orwell', '112', 8.0, true, crypto.randomUUID());
+const book_005 = new Book('The Hobbit', 'J.R.R. Tolkien', '310', 9.3, true, crypto.randomUUID());
+const book_006 = new Book('The Lord of the Rings', 'J.R.R. Tolkien', '1178', 9.4, true, crypto.randomUUID());
+const book_007 = new Book('Fahrenheit 451', 'Ray Bradbury', '194', 7.3, true, crypto.randomUUID());
+const book_008 = new Book('Brave New World', 'Aldous Huxley', '268', 7.7, true, crypto.randomUUID());
+const book_009 = new Book('Dune', 'Frank Herbert', '412', 8.7,  true, crypto.randomUUID());
+const book_010 = new Book('The Catcher in the Rye', 'J.D. Salinger', '277', 8.1,  true, crypto.randomUUID());
 
 
 
