@@ -138,28 +138,42 @@ function displayForm(){
             <div class="fields">
                 
                     <div class="field">
-                        <label>Title</label>
-                        <input type="text" class="book-title">
+                        <label for="title">Title</label>
+                        <input type="text" class="book-title" id="title">
                     </div>
                     <div class="field">
-                        <label>Author</label>
-                        <input type="text" class="author">
+                        <label for="author">Author</label>
+                        <input type="text" class="author" id="author">
                     </div>
                     <div class="field">
-                        <label>Pages</label>
-                        <input type="number" class="pages">
+                        <label for="pages">Pages</label>
+                        <input type="number" class="pages" id="pages">
                     </div>
                     <div class="field">
-                        <label>Rating</label>
+                        <label for="rating">Rating</label>
                         <input type="number" min="0" 
-                        max="1000" step="0.01"class="rating">
+                        max="1000" step="0.01"class="rating" id="rating">
                     </div>
             </div>
-            <button type="submit">Add to Library</button>
+            <button type="submit" id="lib-btn">Add to Library</button>
         </form>
     `;
         container.appendChild(div);
+
+    const author = document.getElementById("author");   
+    const title = document.getElementById("title");
+    const pages = document.getElementById("pages");
+    const rating = document.getElementById("rating");
+    const addToLibBtn = document.getElementById("lib-btn");
+
+    addToLibBtn.addEventListener('click', (e) => {
+        if(author.textContent = "" || title.textContent == "" || pages.textContent == "" || rating.textContent == ""){
+            addToLibBtn.setCustomValidity("Fields must contain a value!");
+        }   
+    })
 }
+
+
 
 
 function hideForm() {
@@ -177,6 +191,8 @@ function handleSubmit(e){
 }
 
 displayBooks();
+
+
 
 // TODO: Create a JSON Database to store the differert books 
 // TODO: Create a button that will relocate the user to the page where he can 
